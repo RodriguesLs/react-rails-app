@@ -1,0 +1,22 @@
+version: '3.7'
+
+  services:
+    api:
+      build:
+        context: ./todo-rails-api/
+      volumes:
+        - ./:/todo-rails-api/
+      ports:
+        - '3000:3000'
+      command: 'rails s -b 0.0.0.0 -p 3000'
+
+    app:
+      image: 'node:14-alpine'
+      working_dir: '/app'
+      volumes:
+        - ./todo-react-app/:/app
+      ports:
+        - '3001:3001'
+      command: 'yarn && yarn start'
+      depends_on:
+        - api
