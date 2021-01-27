@@ -10,6 +10,19 @@ const deleteTask = async (task, loadTasks) => {
   }
 }
 
+const checkTask = async (task, loadTasks) => {
+  let form = { 'task': { 'done': 'true' } }
+  await fetch(`http://localhost:3001/tasks/${task.id}`, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(form)
+  })
+  loadTasks();
+}
+
 export const ListComponent = ({ tasks, loadTasks }) => {
   return (
     <div>
@@ -23,7 +36,7 @@ export const ListComponent = ({ tasks, loadTasks }) => {
                   <td>
                     {
                       task.done == false ? 
-                      <a className="check" href="#">
+                      <a className="check" href="#" onClick={() => checkTask(task, loadTasks)}>
                         <FaCheckCircle />
                       </a> : null
                     }
