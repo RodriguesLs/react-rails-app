@@ -20,3 +20,22 @@
 .tasks-list .card {
   background-color: #7c7c7c;
 }
+
+.card table tbody > tr:nth-child(1) > td {
+  border-top: 0;
+}
+
+.card table {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.card .check {
+  color: yellow;
+  font-size: 15px;
+}
+
+.card .delete {
+  color: white;
+}
