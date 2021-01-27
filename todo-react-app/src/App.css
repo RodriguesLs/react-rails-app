@@ -39,3 +39,12 @@
 .card .delete {
   color: white;
 }
+
+.create-task-btn {
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.remove-tasks-btn {
+  margin-top: 10px;
+}
